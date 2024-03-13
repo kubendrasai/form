@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useContext } from 'react';
+import { appContext } from './Context';
+import Table from './Table';
+import {Link} from 'react-router-dom'
 
 function App() {
+  const {title,list,setList}=useContext(appContext)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>{title}</h1>
+     <hr></hr>
+     <Table />
+     <Link to="/add">Add Student</Link>
     </div>
   );
 }
